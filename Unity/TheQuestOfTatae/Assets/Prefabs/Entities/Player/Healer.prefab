@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 5
-  deadZone: 0.054
+  deadZone: 0.34
   dirPrimary: 0
   action: 0
 --- !u!114 &3913707811295546209
@@ -150,4 +150,10 @@ MonoBehaviour:
     action: 1
   - name: Walking_down
     direction: 2
+    action: 1
+  - name: Walking_left
+    direction: 3
+    action: 1
+  - name: Walking_right
+    direction: 4
     action: 1

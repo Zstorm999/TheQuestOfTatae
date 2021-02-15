@@ -12,18 +12,21 @@ public class PlayerAnimation : MonoBehaviour
     private Animator anim;
 
 
+
+
     private void Start()
     {
         anim = GetComponent<Animator>();
     }
 
-    public void changeAnimState(Entity.Direction dir, Entity.Action act, float speed)
+    public void changeAnimState(Entity.Direction dir, Entity.Action act)
     {
+
         if (currentSate.direction == dir && currentSate.action == act)
         {
-            anim.speed = speed;
             return;
         }
+
 
         try
         {
@@ -36,9 +39,7 @@ public class PlayerAnimation : MonoBehaviour
         }
 
 
-        anim.Play(currentSate.name);
-        anim.speed = speed;
-        
+        anim.Play(currentSate.name);     
 
 
     }

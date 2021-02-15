@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 {
 
     private PlayerAnimation animator;
-    private float playSpeed;
 
     [SerializeField]
     private float velocity;
@@ -47,17 +46,16 @@ public class PlayerController : MonoBehaviour
         xMov = applyDeadZone(xMov);
         yMov = applyDeadZone(yMov);
 
-
-        playSpeed = Mathf.Sqrt(xMov * xMov + yMov * yMov);
-
-        /*if(xMov > 0)
+        if(xMov > 0)
         {
-            animator.changeAnimState();
+            action = Action.WALK;
+            setNewDir(Direction.RIGHT);
         }
         else if(xMov < 0)
         {
-            animator.changeAnimState();
-        }*/
+            action = Action.WALK;
+            setNewDir(Direction.LEFT);
+        }
 
         if (yMov > 0)
         {
@@ -77,7 +75,6 @@ public class PlayerController : MonoBehaviour
         if(xMov == 0 && yMov == 0)
         {
             action = Action.NONE;
-            playSpeed = 1f;
 
         }
 
@@ -86,7 +83,7 @@ public class PlayerController : MonoBehaviour
             dirPrimary = newDirPrimary;
         }
 
-        animator.changeAnimState(dirPrimary, action, playSpeed);
+        animator.changeAnimState(dirPrimary, action);
     }
 
     //Fixed Update for physic calculations that need stable time interval
@@ -109,11 +106,11 @@ public class PlayerController : MonoBehaviour
         if (var == 0) return 0;
 
         int sign = (var < 0) ? -1 : 1;
+
         var = Mathf.Abs(var);
 
-        if (var < deadZone) var = 0f;
-
-        return var * sign;
+        if (var < deadZone) return 0;
+        return sign;
     }
 
     private void setNewDir(Direction dir)
