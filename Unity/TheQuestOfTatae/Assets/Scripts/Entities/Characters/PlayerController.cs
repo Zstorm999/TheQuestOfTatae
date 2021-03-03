@@ -58,18 +58,20 @@ public class PlayerController : MonoBehaviour
         xMov = xMovTmp;
         yMov = yMovTmp;
 
-
+        normalizeVelocity();
 
         playSpeed = Mathf.Sqrt(xMov * xMov + yMov * yMov);
 
-        /*if(xMov > 0)
+        if(xMov > 0)
         {
-            animator.changeAnimState();
+            action = Action.WALK;
+            setNewDir(Direction.RIGHT);
         }
         else if(xMov < 0)
         {
-            animator.changeAnimState();
-        }*/
+            action = Action.WALK;
+            setNewDir(Direction.LEFT);
+        }
 
         if (yMov > 0)
         {
@@ -108,6 +110,8 @@ public class PlayerController : MonoBehaviour
 
 
         //Debug.Log("x: " + xMov + ",y: " + yMov);
+        Debug.Log(xMov * xMov + yMov * yMov);
+
         Vector3 newPos = new Vector3(xMov, yMov, 0) * Time.deltaTime * velocity;
 
         transform.position += newPos;
@@ -127,17 +131,30 @@ public class PlayerController : MonoBehaviour
         float varPrevAbs = Mathf.Abs(varPrev);
 
 
-        if (varAbs > varPrevAbs)
+        if (varAbs >= varPrevAbs)
         {
-
-            if (varAbs < startDeadZone) return 0;
+            
+            if (varAbs < startDeadZone) return 0f;
         }
         else if(varAbs < varPrevAbs)
         {
-            if (varAbs < endDeadZone) return 0;
+            
+            if (varAbs < endDeadZone) return 0f;
         }
 
         return var;
+    }
+
+    private void normalizeVelocity()
+    {
+        float factor = Mathf.Sqrt(xMov * xMov + yMov * yMov);
+
+        if(factor > 1) //we do not want to rescale if max velocity has not been reached
+        {
+            xMov /= factor;
+            yMov /= factor;
+        }
+        
     }
 
     private void setNewDir(Direction dir)

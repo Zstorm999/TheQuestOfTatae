@@ -152,3 +152,9 @@ MonoBehaviour:
   - name: Walking_down
     direction: 2
     action: 1
+  - name: Walking_left
+    direction: 3
+    action: 1
+  - name: Walking_right
+    direction: 4
+    action: 1
