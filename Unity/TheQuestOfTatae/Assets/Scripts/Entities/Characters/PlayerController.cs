@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
 
         playSpeed = Mathf.Sqrt(xMov * xMov + yMov * yMov);
 
+        //first we determine direction
         if(xMov > 0)
         {
             action = Action.WALK;
@@ -89,7 +90,6 @@ public class PlayerController : MonoBehaviour
         if (xMov == 0 && yMov == 0)
         {
             action = Action.NONE;
-            playSpeed = 1f;
 
         }
 
