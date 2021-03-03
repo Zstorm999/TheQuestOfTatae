@@ -36,7 +36,7 @@ public class PlayerAnimation : MonoBehaviour
         }
 
 
-        anim.Play(currentSate.name);
+        anim.Play(currentSate.animName);
         
     }
 
@@ -57,6 +57,7 @@ public class PlayerAnimation : MonoBehaviour
     public struct Animation
     {
         public string name;
+        public string animName;
         public Entity.Direction direction;
         public Entity.Action action;
     }

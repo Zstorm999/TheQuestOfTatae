@@ -134,27 +134,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   states:
-  - name: Idle_up
+  - name: Idle up
+    animName: Idle_up
     direction: 1
     action: 0
-  - name: Idle_down
+  - name: Idle down
+    animName: Idle_down
     direction: 2
     action: 0
-  - name: Idle_left
+  - name: Idle left
+    animName: Idle_left
     direction: 3
     action: 0
-  - name: Idle_right
+  - name: Idle right
+    animName: Idle_right
     direction: 4
     action: 0
-  - name: Walking_up
+  - name: Walking up
+    animName: Walking_up
     direction: 1
     action: 1
-  - name: Walking_down
+  - name: Walking down
+    animName: Walking_down
     direction: 2
     action: 1
-  - name: Walking_left
+  - name: Walking left
+    animName: Walking_left
     direction: 3
     action: 1
-  - name: Walking_right
+  - name: Walking right
+    animName: Walking_right
     direction: 4
     action: 1
+  - name: Heal up
+    animName: Heal
+    direction: 1
+    action: 2
+  - name: Heal down
+    animName: Heal
+    direction: 2
+    action: 2
+  - name: Heal left
+    animName: Heal
+    direction: 3
+    action: 2
+  - name: Heal right
+    animName: Heal
+    direction: 4
+    action: 2
