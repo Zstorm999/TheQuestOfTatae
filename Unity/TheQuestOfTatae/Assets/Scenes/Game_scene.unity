@@ -9221,6 +9221,16 @@ PrefabInstance:
       propertyPath: deadZone
       value: 0.335
       objectReference: {fileID: 0}
+    - target: {fileID: 3913707811295546208, guid: 23c46b02f7edb0e4eafac8ba5e4282ea,
+        type: 3}
+      propertyPath: endDeadZone
+      value: 0.653
+      objectReference: {fileID: 0}
+    - target: {fileID: 3913707811295546208, guid: 23c46b02f7edb0e4eafac8ba5e4282ea,
+        type: 3}
+      propertyPath: startDeadZone
+      value: 0.276
+      objectReference: {fileID: 0}
     - target: {fileID: 3913707811295546210, guid: 23c46b02f7edb0e4eafac8ba5e4282ea,
         type: 3}
       propertyPath: m_RootOrder
