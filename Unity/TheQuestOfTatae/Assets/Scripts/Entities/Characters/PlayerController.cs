@@ -6,8 +6,9 @@ using Entity;
 public class PlayerController : MonoBehaviour
 {
 
+
+
     private PlayerAnimation animator;
-    private float playSpeed;
 
     [SerializeField]
     private float velocity;
@@ -49,65 +50,64 @@ public class PlayerController : MonoBehaviour
         xMov = Input.GetAxis("Horizontal");
         yMov = Input.GetAxis("Vertical");
 
-        float xMovTmp = applyDeadZone(xMov, xMovPrev);
-        float yMovTmp = applyDeadZone(yMov, yMovPrev);
+        //appying corrections
+        float xMovCorrect = applyDeadZone(xMov, xMovPrev);
+        float yMovCorrect = applyDeadZone(yMov, yMovPrev);
+        //we can delay applying the correction to a later time inside update, since FixedUpdate and Update are never called concurrently (checked on the doc)
 
-        xMovPrev = xMov;
-        yMovPrev = yMov;
 
-        xMov = xMovTmp;
-        yMov = yMovTmp;
-
-        normalizeVelocity();
-
-        playSpeed = Mathf.Sqrt(xMov * xMov + yMov * yMov);
-
-        //first we determine direction
+        //checking input for direction (independantly from the fact that we should move)
         if(xMov > 0)
         {
-            action = Action.WALK;
             setNewDir(Direction.RIGHT);
         }
         else if(xMov < 0)
         {
-            action = Action.WALK;
             setNewDir(Direction.LEFT);
         }
 
-        if (yMov > 0)
+        if(yMov > 0)
         {
-            action = Action.WALK;
             setNewDir(Direction.UP);
         }
-        else if (yMov < 0)
+        else if(yMov < 0)
+        {
+            setNewDir(Direction.DOWN);
+        }
+
+        if(xMovCorrect != 0 || yMovCorrect != 0) //if one of the two is not 0, we should move
         {
             action = Action.WALK;
-            setNewDir(Direction.DOWN);
-
         }
-
-        //IDLE
-        if (xMov == 0 && yMov == 0)
+        else
         {
             action = Action.NONE;
-
         }
+
+        
 
         if (!hasMaintainedDir && newDirPrimary != Direction.NONE)
         {
             dirPrimary = newDirPrimary;
         }
 
-        animator.changeAnimState(dirPrimary, action, playSpeed);
+        animator.changeAnimState(dirPrimary, action);
+
+
+        //appyling corrections
+        //prev values take the real value, not the corrected one
+        xMovPrev = xMov;
+        yMovPrev = yMov;
+
+        xMov = xMovCorrect;
+        yMov = yMovCorrect;
+        normalizeVelocity();
+
     }
 
     //Fixed Update for physic calculations that need stable time interval
     private void FixedUpdate()
     {
-        //xMov = Mathf.Round(xMov);
-        //yMov = Mathf.Round(yMov);
-
-
 
         //Debug.Log("x: " + xMov + ",y: " + yMov);
         Debug.Log(xMov * xMov + yMov * yMov);

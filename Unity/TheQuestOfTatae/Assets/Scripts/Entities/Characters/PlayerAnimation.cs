@@ -17,11 +17,11 @@ public class PlayerAnimation : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public void changeAnimState(Entity.Direction dir, Entity.Action act, float speed)
+    public void changeAnimState(Entity.Direction dir, Entity.Action act)
     {
         if (currentSate.direction == dir && currentSate.action == act)
         {
-            anim.speed = speed;
+            
             return;
         }
 
@@ -37,10 +37,7 @@ public class PlayerAnimation : MonoBehaviour
 
 
         anim.Play(currentSate.name);
-        anim.speed = speed;
         
-
-
     }
 
     private Animation searchForAnim(Entity.Direction dir, Entity.Action act)
