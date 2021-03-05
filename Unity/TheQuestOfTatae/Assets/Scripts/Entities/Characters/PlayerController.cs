@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     //animation
     private PlayerAnimation animator;
 
+    //attack
+    private PlayerAttack attack;
+
 
     //player movement
     [SerializeField]
@@ -32,11 +35,11 @@ public class PlayerController : MonoBehaviour
     private float xMov, yMov;
     private float xMovPrev, yMovPrev;
 
+
+    //State
     [SerializeField]
     private Direction dirPrimary;
 
-
-    //misc 
     [SerializeField]
     private Action action;
 
@@ -57,14 +60,18 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<PlayerAnimation>();
+        attack = GetComponent<PlayerAttack>();
     }
 
     // Update is called once per frame
     private void Update()
     {
 
+        //reading input
+        Vector2 mov = playerActions["Move"].ReadValue<Vector2>();
+        bool isAttack0Pressed = playerActions["Attack 0"].triggered;
 
-        Vector2 mov = playerActions["move"].ReadValue<Vector2>();
+
         xMov = mov.x;
         yMov = mov.y;
 
@@ -76,6 +83,8 @@ public class PlayerController : MonoBehaviour
 
         dirPrimary =  computeDirection();
 
+
+        //now we compute the action performed 
         if(xMovCorrect != 0 || yMovCorrect != 0) //if one of the two is not 0, we should move
         {
             action = Action.WALK;
@@ -83,6 +92,20 @@ public class PlayerController : MonoBehaviour
         else
         {
             action = Action.NONE;
+        }
+
+        if (isAttack0Pressed) //button pressed
+        {
+            attack.PerformAttack(0);
+        }
+
+
+
+        switch (attack.activeAttack)
+        {
+            case 0:
+                action = Action.ATTACK_0;
+                break;
         }
 
         animator.changeAnimState(dirPrimary, action);
@@ -174,5 +197,6 @@ public class PlayerController : MonoBehaviour
 
         return dir;
     }
+
 
 }

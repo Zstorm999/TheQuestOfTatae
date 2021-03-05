@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3913707811295546212}
   - component: {fileID: 3913707811295546208}
   - component: {fileID: 3913707811295546209}
+  - component: {fileID: 1848356346229615018}
   m_Layer: 0
   m_Name: Healer
   m_TagString: Untagged
@@ -123,6 +124,7 @@ MonoBehaviour:
   endDeadZone: 0.65
   dirPrimary: 0
   action: 0
+  attack1Delay: 1
 --- !u!114 &3913707811295546209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,39 +138,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   states:
-  - name: Idle up
+  - displayName: Idle up
+    animationName: Idle up
     direction: 1
     action: 0
-  - name: Idle down
+  - displayName: Idle down
+    animationName: Idle down
     direction: 2
     action: 0
-  - name: Idle left
+  - displayName: Idle left
+    animationName: Idle left
     direction: 3
     action: 0
-  - name: Idle right
+  - displayName: Idle right
+    animationName: Idle right
     direction: 4
     action: 0
-  - name: Walking up
+  - displayName: Walking up
+    animationName: Walking up
     direction: 1
     action: 1
-  - name: Walking down
+  - displayName: Walking down
+    animationName: Walking down
     direction: 2
     action: 1
-  - name: Walking left
+  - displayName: Walking left
+    animationName: Walking left
     direction: 3
     action: 1
-  - name: Walking right
+  - displayName: Walking right
+    animationName: Walking right
     direction: 4
     action: 1
-  - name: Healing up
+  - displayName: Healing up
+    animationName: Idle up
     direction: 1
     action: 2
-  - name: Healing down
+  - displayName: Healing down
+    animationName: Idle down
     direction: 2
     action: 2
-  - name: Healing left
+  - displayName: Healing left
+    animationName: Idle left
     direction: 3
     action: 2
-  - name: Healing right
+  - displayName: Healing right
+    animationName: Idle right
     direction: 4
     action: 2
+--- !u!114 &1848356346229615018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3913707811295546213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc9023bf700004081a00c331884767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackLatency:
+  - 1

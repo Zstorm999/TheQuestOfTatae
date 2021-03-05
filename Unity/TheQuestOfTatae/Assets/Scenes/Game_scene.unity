@@ -9218,8 +9218,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3913707811295546208, guid: 23c46b02f7edb0e4eafac8ba5e4282ea,
         type: 3}
-      propertyPath: moveAction.m_SingletonActionBindings.Array.data[1].m_Name
-      value: WASD
+      propertyPath: dirPrimary
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3913707811295546210, guid: 23c46b02f7edb0e4eafac8ba5e4282ea,
         type: 3}
