@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     private InputActionAsset playerActionsAsset;
 
     //actions input
-    //[SerializeField]
     private InputActionMap playerActions;
 
     //animation
