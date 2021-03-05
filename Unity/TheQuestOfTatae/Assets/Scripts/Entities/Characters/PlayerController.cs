@@ -7,17 +7,17 @@ using Entity;
 
 public class PlayerController : MonoBehaviour
 {
+    //actions input
     [SerializeField]
     private InputAction moveAction;
-
     [SerializeField]
     private InputAction attack1Action;
 
-    [SerializeField]
-    private InputActionMap actions;
-
+    //animation
     private PlayerAnimation animator;
 
+
+    //player movement
     [SerializeField]
     private float velocity;
 
@@ -34,21 +34,23 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private Direction dirPrimary;
+
+
     //private Direction dirSecundary;
 
-    private bool hasMaintainedDir;
+    
+    //private bool hasMaintainedDir;
 
     [SerializeField]
     private Action action;
 
-    private Direction newDirPrimary;
+    //private Direction newDirPrimary;
 
 
     private void Awake()
     {
         //moveAction.performed += onMove;
         //attack1Action.performed += onAttack1;
-
     }
 
     private void OnEnable()
@@ -65,8 +67,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        newDirPrimary = Direction.NONE;
-        hasMaintainedDir = false;
+        //newDirPrimary = Direction.NONE;
+        //hasMaintainedDir = false;
 
 
         Vector2 mov = moveAction.ReadValue<Vector2>();
@@ -183,14 +185,14 @@ public class PlayerController : MonoBehaviour
         return dir;
     }
 
-    private void setNewDir(Direction dir)
+    /*private void setNewDir(Direction dir)
     {
         if (dir == dirPrimary)
             hasMaintainedDir = true;
         else
             newDirPrimary = dir;
 
-    }
+    }*/
 
     private void onMove(InputAction.CallbackContext context)
     {

@@ -180,12 +180,6 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
-  actions:
-    m_Name: Actions
-    m_Id: 39ffbb7f-5eb0-45dd-a6f9-0669b757c54f
-    m_Asset: {fileID: 0}
-    m_Actions: []
-    m_Bindings: []
   velocity: 5
   startDeadZone: 0.28
   endDeadZone: 0.65
@@ -205,50 +199,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
   - name: Idle up
-    animName: Idle_up
     direction: 1
     action: 0
   - name: Idle down
-    animName: Idle_down
     direction: 2
     action: 0
   - name: Idle left
-    animName: Idle_left
     direction: 3
     action: 0
-  - name: Idle right
-    animName: Idle_right
+  - name: Idle left
     direction: 4
     action: 0
   - name: Walking up
-    animName: Walking_up
     direction: 1
     action: 1
   - name: Walking down
-    animName: Walking_down
     direction: 2
     action: 1
   - name: Walking left
-    animName: Walking_left
     direction: 3
     action: 1
   - name: Walking right
-    animName: Walking_right
     direction: 4
     action: 1
-  - name: Heal up
-    animName: Heal
+  - name: Healing up
     direction: 1
     action: 2
-  - name: Heal down
-    animName: Heal
+  - name: Healing down
     direction: 2
     action: 2
-  - name: Heal left
-    animName: Heal
+  - name: Healing left
     direction: 3
     action: 2
-  - name: Heal right
-    animName: Heal
+  - name: Healing right
     direction: 4
     action: 2

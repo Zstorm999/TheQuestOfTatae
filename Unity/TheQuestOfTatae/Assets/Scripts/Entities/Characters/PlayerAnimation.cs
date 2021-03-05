@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
+
     [SerializeField]
     private List<Animation> states;
 
@@ -36,7 +37,7 @@ public class PlayerAnimation : MonoBehaviour
         }
 
 
-        anim.Play(currentSate.animName);
+        anim.Play(currentSate.name);
         
     }
 
@@ -53,12 +54,15 @@ public class PlayerAnimation : MonoBehaviour
 
     }
 
+    
     [System.Serializable]
     public struct Animation
     {
+        //must match the name given to the state in the Unity Animator
         public string name;
-        public string animName;
+        
         public Entity.Direction direction;
+        
         public Entity.Action action;
     }
 
