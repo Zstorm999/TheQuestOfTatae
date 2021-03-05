@@ -7,11 +7,12 @@ using Entity;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    private InputActionAsset playerActionsAsset;
+
     //actions input
-    [SerializeField]
-    private InputAction moveAction;
-    [SerializeField]
-    private InputAction attack1Action;
+    //[SerializeField]
+    private InputActionMap playerActions;
 
     //animation
     private PlayerAnimation animator;
@@ -36,27 +37,22 @@ public class PlayerController : MonoBehaviour
     private Direction dirPrimary;
 
 
-    //private Direction dirSecundary;
-
-    
-    //private bool hasMaintainedDir;
-
+    //misc 
     [SerializeField]
     private Action action;
-
-    //private Direction newDirPrimary;
 
 
     private void Awake()
     {
         //moveAction.performed += onMove;
         //attack1Action.performed += onAttack1;
+
+        playerActions = playerActionsAsset.FindActionMap("Player");
     }
 
     private void OnEnable()
     {
-        moveAction.Enable();
-        attack1Action.Enable();
+        playerActions.Enable();
     }
 
     private void Start()
@@ -67,11 +63,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //newDirPrimary = Direction.NONE;
-        //hasMaintainedDir = false;
 
 
-        Vector2 mov = moveAction.ReadValue<Vector2>();
+        Vector2 mov = playerActions["move"].ReadValue<Vector2>();
         xMov = mov.x;
         yMov = mov.y;
 
@@ -109,9 +103,6 @@ public class PlayerController : MonoBehaviour
     //Fixed Update for physic calculations that need stable time interval
     private void FixedUpdate()
     {
-
-        ////Debug.Log("x: " + xMov + ",y: " + yMov);
-        //Debug.Log(xMov * xMov + yMov * yMov);
         switch (action)
         {
             case Action.WALK:
@@ -185,25 +176,4 @@ public class PlayerController : MonoBehaviour
         return dir;
     }
 
-    /*private void setNewDir(Direction dir)
-    {
-        if (dir == dirPrimary)
-            hasMaintainedDir = true;
-        else
-            newDirPrimary = dir;
-
-    }*/
-
-    private void onMove(InputAction.CallbackContext context)
-    {
-        Vector2 mov = context.ReadValue<Vector2>();
-
-
-
-    }
-
-    private void onAttack1(InputAction.CallbackContext context)
-    {
-
-    }
 }
