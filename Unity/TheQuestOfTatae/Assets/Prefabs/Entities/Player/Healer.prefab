@@ -116,6 +116,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ba466f3df9f1ce41a6fcee063eae2ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: 2a4a97b5-74ec-43c3-8ce1-ab54b01c912f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 5facc7cc-51bb-45de-a1f9-d772f1183cf9
+      m_Path: <Gamepad>/leftStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 0
+    - m_Name: WASD
+      m_Id: 3868952f-26da-4732-92c1-5d3b397ebd95
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 3605ce12-4d11-4d16-9d5f-d8b3120b2866
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 659fbe80-93e5-4422-be55-6eff17eaaf96
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: left
+      m_Id: fded3aad-9b33-42d2-8d70-80a8839a0c1b
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: right
+      m_Id: af8b94e4-ffc5-4ab6-8f22-4a27fe9cc224
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+  attack1Action:
+    m_Name: Attack 1
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 814f39d3-3975-49a9-8091-8c64622a33e1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  actions:
+    m_Name: Actions
+    m_Id: 39ffbb7f-5eb0-45dd-a6f9-0669b757c54f
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
   velocity: 5
   startDeadZone: 0.28
   endDeadZone: 0.65

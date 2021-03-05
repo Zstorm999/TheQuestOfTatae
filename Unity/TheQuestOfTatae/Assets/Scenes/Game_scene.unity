@@ -9216,6 +9216,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3913707811295546208, guid: 23c46b02f7edb0e4eafac8ba5e4282ea,
+        type: 3}
+      propertyPath: moveAction.m_SingletonActionBindings.Array.data[1].m_Name
+      value: WASD
+      objectReference: {fileID: 0}
     - target: {fileID: 3913707811295546210, guid: 23c46b02f7edb0e4eafac8ba5e4282ea,
         type: 3}
       propertyPath: m_RootOrder

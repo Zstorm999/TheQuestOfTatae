@@ -1,12 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Entity;
+
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    private InputAction moveAction;
 
+    [SerializeField]
+    private InputAction attack1Action;
 
+    [SerializeField]
+    private InputActionMap actions;
 
     private PlayerAnimation animator;
 
@@ -36,6 +44,19 @@ public class PlayerController : MonoBehaviour
     private Direction newDirPrimary;
 
 
+    private void Awake()
+    {
+        //moveAction.performed += onMove;
+        //attack1Action.performed += onAttack1;
+
+    }
+
+    private void OnEnable()
+    {
+        moveAction.Enable();
+        attack1Action.Enable();
+    }
+
     private void Start()
     {
         animator = GetComponent<PlayerAnimation>();
@@ -47,8 +68,10 @@ public class PlayerController : MonoBehaviour
         newDirPrimary = Direction.NONE;
         hasMaintainedDir = false;
 
-        xMov = Input.GetAxisRaw("Horizontal");
-        yMov = Input.GetAxisRaw("Vertical");
+
+        Vector2 mov = moveAction.ReadValue<Vector2>();
+        xMov = mov.x;
+        yMov = mov.y;
 
         //appying corrections
         float xMovCorrect = applyDeadZone(xMov, xMovPrev);
@@ -166,6 +189,19 @@ public class PlayerController : MonoBehaviour
             hasMaintainedDir = true;
         else
             newDirPrimary = dir;
+
+    }
+
+    private void onMove(InputAction.CallbackContext context)
+    {
+        Vector2 mov = context.ReadValue<Vector2>();
+
+
+
+    }
+
+    private void onAttack1(InputAction.CallbackContext context)
+    {
 
     }
 }
