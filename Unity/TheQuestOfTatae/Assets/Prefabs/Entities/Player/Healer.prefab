@@ -145,7 +145,7 @@ MonoBehaviour:
   - name: Idle left
     direction: 3
     action: 0
-  - name: Idle left
+  - name: Idle right
     direction: 4
     action: 0
   - name: Walking up
