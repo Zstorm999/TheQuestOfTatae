@@ -10,6 +10,13 @@ public class HealerAttack : PlayerAttack
     //protected int activeAttack = -1;
     //private float[] attackLatency;
 
+    [SerializeField]
+    private GameObject healProjectile;
+
+    [SerializeField]
+    [Range(0f, 1f)]
+    private float healStartDelay;
+
     public override void PerformAttack(int attackNumber)
     {
         
@@ -23,8 +30,8 @@ public class HealerAttack : PlayerAttack
 
                 switch (attackNumber)
                 {
-                    case 0: 
-                        heal(); 
+                    case 0:
+                        StartCoroutine(heal());
                         break;
                 }
 
@@ -35,9 +42,13 @@ public class HealerAttack : PlayerAttack
 
 
     //heal is attack 0
-    private void heal()
+    private IEnumerator heal()
     {
-        Debug.Log("Heal");
+        yield return new WaitForSeconds(healStartDelay);
+
+        GameObject projectile =  Instantiate(healProjectile, transform.position, Quaternion.identity);
+
+        projectile.GetComponent<HealerHealProjectile>().DestroyLater();
     }
 
     

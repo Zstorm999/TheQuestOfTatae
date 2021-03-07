@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Entity;
 
-
+[RequireComponent(typeof(PlayerAnimation))]
+[RequireComponent(typeof(PlayerAttack))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]

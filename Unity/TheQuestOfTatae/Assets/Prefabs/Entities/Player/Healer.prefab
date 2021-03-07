@@ -124,7 +124,6 @@ MonoBehaviour:
   endDeadZone: 0.65
   dirPrimary: 0
   action: 0
-  attack1Delay: 1
 --- !u!114 &3913707811295546209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,3 +199,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackLatency:
   - 1
+  healProjectile: {fileID: 862373322971936857, guid: 05d982cf42764cd44bc38850953ce4fe,
+    type: 3}
+  healStartDelay: 0.747
