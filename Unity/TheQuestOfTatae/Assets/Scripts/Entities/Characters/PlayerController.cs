@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
         //we can delay applying the correction to a later time inside update, since FixedUpdate and Update are never called concurrently (checked on the doc)
 
 
-        dirPrimary =  computeDirection();
+        Direction newDir =  computeDirection();
 
 
         //now we compute the action performed 
@@ -106,8 +106,12 @@ public class PlayerController : MonoBehaviour
         {
             case 0:
                 action = Action.ATTACK_0;
+                newDir = dirPrimary; //attack maintains direction
                 break;
         }
+
+
+        dirPrimary = newDir;
 
         animator.changeAnimState(dirPrimary, action);
 
