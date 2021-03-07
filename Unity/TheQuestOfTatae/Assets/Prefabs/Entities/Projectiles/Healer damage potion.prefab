@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2028724387469496675}
   - component: {fileID: 6563749232662177069}
-  - component: {fileID: 3529792392511800927}
+  - component: {fileID: 8654903062182201591}
   m_Layer: 0
-  m_Name: Healer heal projectile
+  m_Name: Healer damage potion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 862373322971936857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.5, y: 4.5, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children:
   - {fileID: 4830843306067198128}
   - {fileID: 4724827455046020102}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.30588236, g: 0.8, b: 0.49206734, a: 1}
+  m_Color: {r: 0.8490566, g: 0.18727212, b: 0.084104665, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3529792392511800927
+--- !u!114 &8654903062182201591
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 862373322971936857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74dc0d79a81fea949aa014109e5ae323, type: 3}
+  m_Script: {fileID: 11500000, guid: cdfb255d734cbb64f854f7af9ec11675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 5
@@ -169,7 +169,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 3
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.48817408, g: 0.764151, b: 0.06127627, a: 1}
+  m_Color: {r: 0.7647059, g: 0.48470238, b: 0.062745094, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -250,7 +250,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.13550194, g: 0.8207547, b: 0.18566896, a: 1}
+  m_Color: {r: 0.81960785, g: 0.41325584, b: 0.13725488, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

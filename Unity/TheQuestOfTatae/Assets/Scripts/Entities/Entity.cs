@@ -6,7 +6,7 @@ namespace Entity
 {
     public enum Direction { NONE, UP, DOWN, LEFT, RIGHT}
 
-    public enum Action { NONE, WALK, ATTACK_0}
+    public enum Action { NONE, WALK, ATTACK_0, ATTACK_1}
 
     public static class Entityf
     {

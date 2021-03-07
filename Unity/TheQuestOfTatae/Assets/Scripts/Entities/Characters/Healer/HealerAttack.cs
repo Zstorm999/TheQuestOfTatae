@@ -15,15 +15,21 @@ public class HealerAttack : PlayerAttack
     private GameObject healProjectile;
 
     [SerializeField]
-    [Range(0f, 1f)]
     private float healStartDelay;
+
+    [SerializeField]
+    private GameObject damagePotionProjectile;
+
+    [SerializeField]
+    private float damagePotionStartDelay;
+
 
     public override void PerformAttack(int attackNumber, Direction dir)
     {
         
         if (!isAttacking)
         {
-            if (attackNumber >=0  && attackNumber < 1)
+            if (attackNumber >=0  && attackNumber < 2)
             {//if we are doing a valid attack
 
                 isAttacking = true;
@@ -33,6 +39,11 @@ public class HealerAttack : PlayerAttack
                 {
                     case 0:
                         StartCoroutine(heal(dir));
+                        break;
+
+                    case 1:
+                        StartCoroutine(damagePotion(dir));
+                        Debug.Log("Coroutine started");
                         break;
                 }
 
@@ -47,9 +58,22 @@ public class HealerAttack : PlayerAttack
     {
         yield return new WaitForSeconds(healStartDelay);
 
-        GameObject projectile =  Instantiate(healProjectile, transform.position, Quaternion.identity);
+        GameObject projectile = Instantiate(healProjectile, transform.position, Quaternion.identity);
 
         HealerHealProjectile proj = projectile.GetComponent<HealerHealProjectile>();
+
+        proj.DestroyLater();
+        proj.direction = dir.GetVector2();
+
+    }
+
+    //damage potion is attack 1
+    private IEnumerator damagePotion(Direction dir)
+    {
+        yield return new WaitForSeconds(damagePotionStartDelay);
+
+        GameObject projectile = Instantiate(damagePotionProjectile, transform.position, Quaternion.identity);
+        HealerDamagePotion proj = projectile.GetComponent<HealerDamagePotion>();
 
         proj.DestroyLater();
         proj.direction = dir.GetVector2();

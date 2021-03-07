@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
         //reading input
         Vector2 mov = playerActions["Move"].ReadValue<Vector2>();
         bool isAttack0Pressed = playerActions["Attack 0"].triggered;
+        bool isAttack1Pressed = playerActions["Attack 1"].triggered;
 
 
         xMov = mov.x;
@@ -99,6 +100,10 @@ public class PlayerController : MonoBehaviour
         {
             attack.PerformAttack(0, newDir);
         }
+        else if (isAttack1Pressed)
+        {
+            attack.PerformAttack(1, newDir);
+        }
 
 
 
@@ -107,6 +112,11 @@ public class PlayerController : MonoBehaviour
             case 0:
                 action = Action.ATTACK_0;
                 newDir = dirPrimary; //attack maintains direction
+                break;
+
+            case 1:
+                action = Action.ATTACK_1;
+                newDir = dirPrimary; //attack maintains directions
                 break;
         }
 

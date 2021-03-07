@@ -15,8 +15,6 @@ public abstract class PlayerAttack : MonoBehaviour
     private float[] attackLatency;
 
 
-
-
     public abstract void PerformAttack(int attackNumber, Direction dir);
 
 

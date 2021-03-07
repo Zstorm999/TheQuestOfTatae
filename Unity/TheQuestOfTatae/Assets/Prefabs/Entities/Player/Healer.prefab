@@ -122,7 +122,7 @@ MonoBehaviour:
   velocity: 5
   startDeadZone: 0.28
   endDeadZone: 0.65
-  dirPrimary: 0
+  dirPrimary: 2
   action: 0
 --- !u!114 &3913707811295546209
 MonoBehaviour:
@@ -185,6 +185,22 @@ MonoBehaviour:
     animationName: Idle right
     direction: 4
     action: 2
+  - displayName: Damage potion up
+    animationName: Idle up
+    direction: 1
+    action: 3
+  - displayName: Damage potion down
+    animationName: Idle down
+    direction: 2
+    action: 3
+  - displayName: Damage potion left
+    animationName: Idle left
+    direction: 3
+    action: 3
+  - displayName: Damage potion right
+    animationName: Idle right
+    direction: 4
+    action: 3
 --- !u!114 &1848356346229615018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +215,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackLatency:
   - 1
+  - 0.49
   healProjectile: {fileID: 862373322971936857, guid: 05d982cf42764cd44bc38850953ce4fe,
     type: 3}
   healStartDelay: 0.747
+  damagePotionProjectile: {fileID: 862373322971936857, guid: e30d1257ade0bf44c8c8b63cc30e0ef2,
+    type: 3}
+  damagePotionStartDelay: 0.2
