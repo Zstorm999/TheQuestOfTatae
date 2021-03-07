@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Entity;
 
 public class HealerAttack : PlayerAttack
 {
@@ -17,7 +18,7 @@ public class HealerAttack : PlayerAttack
     [Range(0f, 1f)]
     private float healStartDelay;
 
-    public override void PerformAttack(int attackNumber)
+    public override void PerformAttack(int attackNumber, Direction dir)
     {
         
         if (!isAttacking)
@@ -31,7 +32,7 @@ public class HealerAttack : PlayerAttack
                 switch (attackNumber)
                 {
                     case 0:
-                        StartCoroutine(heal());
+                        StartCoroutine(heal(dir));
                         break;
                 }
 
@@ -42,13 +43,17 @@ public class HealerAttack : PlayerAttack
 
 
     //heal is attack 0
-    private IEnumerator heal()
+    private IEnumerator heal(Direction dir)
     {
         yield return new WaitForSeconds(healStartDelay);
 
         GameObject projectile =  Instantiate(healProjectile, transform.position, Quaternion.identity);
 
-        projectile.GetComponent<HealerHealProjectile>().DestroyLater();
+        HealerHealProjectile proj = projectile.GetComponent<HealerHealProjectile>();
+
+        proj.DestroyLater();
+        proj.direction = dir;
+
     }
 
     

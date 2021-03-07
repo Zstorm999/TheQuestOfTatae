@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
         if (isAttack0Pressed) //button pressed
         {
-            attack.PerformAttack(0);
+            attack.PerformAttack(0, newDir);
         }
 
 
@@ -188,11 +188,11 @@ public class PlayerController : MonoBehaviour
 
         if(Mathf.Abs(xMov) > Mathf.Abs(yMov) + gap) // consider x Axis as the main direction
         {
-            dir = Entityf.GetAxisDirection(new Vector2(xMov, 0));
+            dir =new Vector2(xMov, 0).GetDirection();
         }
         else if(Mathf.Abs(yMov) > Mathf.Abs(xMov) + gap) // consider y Axis as the main direction
         {
-            dir = Entityf.GetAxisDirection(new Vector2(0, yMov));
+            dir = new Vector2(0, yMov).GetDirection();
         }
         else //both are equal, meaning an almost 45deg angle
         {

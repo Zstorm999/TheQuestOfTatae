@@ -8,14 +8,14 @@ namespace Entity
 
     public enum Action { NONE, WALK, ATTACK_0}
 
-    public struct Entityf
+    public static class Entityf
     {
         /// <summary>
         /// Returns the 2D Vector corresponding to the given Direction
         /// </summary>
         /// <param name="dir">The Direction provided</param>
         /// <returns>A Vector2 that can be either (0,0), (0,1), (0,-1), (1,0) or (-1,0) depending on the Direction given</returns>
-        public static Vector2 GetDirectionAxis(Direction dir)
+        public static Vector2 GetVector2(this Direction dir)
         {
             switch (dir)
             {
@@ -35,7 +35,7 @@ namespace Entity
         /// </summary>
         /// <param name="vec">A 2D Vector</param>
         /// <returns>The associated direction, or NONE if the direction is invalid or 0</returns>
-        public static Direction GetAxisDirection(Vector2 vec)
+        public static Direction GetDirection(this Vector2 vec)
         {
             if(vec.x == 0)
             {

@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Entity;
 
 public abstract class Projectile : MonoBehaviour
 {
     [SerializeField]
     protected float lifetime;
 
+    public Direction direction { get; set; } = Direction.NONE;
+
+    [SerializeField]
+    protected float velocity;
 
     /// <summary>
     /// Destroys the projectile after its lifetime
