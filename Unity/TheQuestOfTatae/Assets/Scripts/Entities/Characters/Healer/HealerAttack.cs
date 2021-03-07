@@ -43,7 +43,6 @@ public class HealerAttack : PlayerAttack
 
                     case 1:
                         StartCoroutine(damagePotion(dir));
-                        Debug.Log("Coroutine started");
                         break;
                 }
 
