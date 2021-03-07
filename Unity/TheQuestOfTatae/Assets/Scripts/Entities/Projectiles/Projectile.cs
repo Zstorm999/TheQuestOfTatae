@@ -8,7 +8,7 @@ public abstract class Projectile : MonoBehaviour
     [SerializeField]
     protected float lifetime;
 
-    public Direction direction { get; set; } = Direction.NONE;
+    public Vector2 direction { get; set; }
 
     [SerializeField]
     protected float velocity;

@@ -52,7 +52,7 @@ public class HealerAttack : PlayerAttack
         HealerHealProjectile proj = projectile.GetComponent<HealerHealProjectile>();
 
         proj.DestroyLater();
-        proj.direction = dir;
+        proj.direction = dir.GetVector2();
 
     }
 

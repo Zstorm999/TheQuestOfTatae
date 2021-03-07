@@ -11,8 +11,6 @@ public class HealerHealProjectile : Projectile
 
     private void FixedUpdate()
     {
-        Vector2 dir = direction.GetVector2();
-
-        transform.position += new Vector3(dir.x, dir.y) * velocity * Time.deltaTime;
+        transform.position += new Vector3(direction.x, direction.y) * velocity * Time.deltaTime;
     }
 }
