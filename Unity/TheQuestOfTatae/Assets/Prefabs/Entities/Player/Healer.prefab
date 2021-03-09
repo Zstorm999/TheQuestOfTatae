@@ -170,35 +170,35 @@ MonoBehaviour:
     direction: 4
     action: 1
   - displayName: Healing up
-    animationName: Idle up
+    animationName: Potion down
     direction: 1
     action: 2
   - displayName: Healing down
-    animationName: Idle down
+    animationName: Potion down
     direction: 2
     action: 2
   - displayName: Healing left
-    animationName: Idle left
+    animationName: Potion down
     direction: 3
     action: 2
   - displayName: Healing right
-    animationName: Idle right
+    animationName: Potion down
     direction: 4
     action: 2
   - displayName: Damage potion up
-    animationName: Idle up
+    animationName: Potion down
     direction: 1
     action: 3
   - displayName: Damage potion down
-    animationName: Idle down
+    animationName: Potion down
     direction: 2
     action: 3
   - displayName: Damage potion left
-    animationName: Idle left
+    animationName: Potion down
     direction: 3
     action: 3
   - displayName: Damage potion right
-    animationName: Idle right
+    animationName: Potion down
     direction: 4
     action: 3
 --- !u!114 &1848356346229615018
