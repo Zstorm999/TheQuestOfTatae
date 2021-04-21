@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Direction dirPrimary;
 
+    private Vector2 TurretDirection;
+
     [SerializeField]
     private Action action;
 
@@ -73,6 +75,13 @@ public class PlayerController : MonoBehaviour
         bool isAttack0Pressed = playerActions["Attack 0"].triggered;
         bool isAttack1Pressed = playerActions["Attack 1"].triggered;
 
+        this.TurretDirection = playerActions["AimPoint"].ReadValue<Vector2>();
+
+        //FIXME
+        /**the mouse position is currently giving the position on the screen;
+         * we need the position relative to the player
+         */
+        this.TurretDirection.Normalize();
 
         xMov = mov.x;
         yMov = mov.y;
@@ -82,11 +91,10 @@ public class PlayerController : MonoBehaviour
         float yMovCorrect = applyDeadZone(yMov, yMovPrev);
         //we can delay applying the correction to a later time inside update, since FixedUpdate and Update are never called concurrently (checked on the doc)
 
-
         Direction newDir =  computeDirection();
 
 
-        //now we compute the action performed 
+        //now we compute the action performed
         if(xMovCorrect != 0 || yMovCorrect != 0) //if one of the two is not 0, we should move
         {
             action = Action.WALK;
@@ -98,11 +106,11 @@ public class PlayerController : MonoBehaviour
 
         if (isAttack0Pressed) //button pressed
         {
-            attack.PerformAttack(0, newDir);
+            attack.PerformAttack(0, newDir, TurretDirection);
         }
         else if (isAttack1Pressed)
         {
-            attack.PerformAttack(1, newDir);
+            attack.PerformAttack(1, newDir, TurretDirection);
         }
 
 
@@ -165,12 +173,10 @@ public class PlayerController : MonoBehaviour
 
         if (varAbs >= varPrevAbs)
         {
-            
             if (varAbs < startDeadZone) return 0f;
         }
         else if(varAbs < varPrevAbs)
         {
-            
             if (varAbs < endDeadZone) return 0f;
         }
 
@@ -186,7 +192,6 @@ public class PlayerController : MonoBehaviour
             xMov /= factor;
             yMov /= factor;
         }
-        
     }
 
 

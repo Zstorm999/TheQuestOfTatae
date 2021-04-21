@@ -28,6 +28,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "AimPoint",
+                    "type": "Value",
+                    "id": "0f3497e5-e614-404a-a5d5-01b793857cbd",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -138,6 +146,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Attack 1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cf371e02-196b-4e12-b664-85869cee0a83",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "AimPoint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

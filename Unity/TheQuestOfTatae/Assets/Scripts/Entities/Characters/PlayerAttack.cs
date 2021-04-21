@@ -15,7 +15,7 @@ public abstract class PlayerAttack : MonoBehaviour
     private float[] attackLatency;
 
 
-    public abstract void PerformAttack(int attackNumber, Direction dir);
+    public abstract void PerformAttack(int attackNumber, Direction dir, Vector2 TurretDirection);
 
 
     //callback method to reset the attack state

@@ -24,9 +24,8 @@ public class HealerAttack : PlayerAttack
     private float damagePotionStartDelay;
 
 
-    public override void PerformAttack(int attackNumber, Direction dir)
+    public override void PerformAttack(int attackNumber, Direction dir, Vector2 TurretDirection)
     {
-        
         if (!isAttacking)
         {
             if (attackNumber >=0  && attackNumber < 2)
@@ -38,11 +37,11 @@ public class HealerAttack : PlayerAttack
                 switch (attackNumber)
                 {
                     case 0:
-                        StartCoroutine(heal(dir));
+                        StartCoroutine(heal(dir, TurretDirection));
                         break;
 
                     case 1:
-                        StartCoroutine(damagePotion(dir));
+                        StartCoroutine(damagePotion(dir, TurretDirection));
                         break;
                 }
 
@@ -53,7 +52,7 @@ public class HealerAttack : PlayerAttack
 
 
     //heal is attack 0
-    private IEnumerator heal(Direction dir)
+    private IEnumerator heal(Direction dir, Vector2 TurretDirection)
     {
         yield return new WaitForSeconds(healStartDelay);
 
@@ -62,12 +61,13 @@ public class HealerAttack : PlayerAttack
         HealerHealProjectile proj = projectile.GetComponent<HealerHealProjectile>();
 
         proj.DestroyLater();
-        proj.direction = dir.GetVector2();
+        proj.direction = TurretDirection;
 
+        Debug.Log(TurretDirection);
     }
 
     //damage potion is attack 1
-    private IEnumerator damagePotion(Direction dir)
+    private IEnumerator damagePotion(Direction dir, Vector2 TurretDirection)
     {
         yield return new WaitForSeconds(damagePotionStartDelay);
 
@@ -75,7 +75,7 @@ public class HealerAttack : PlayerAttack
         HealerDamagePotion proj = projectile.GetComponent<HealerDamagePotion>();
 
         proj.DestroyLater();
-        proj.direction = dir.GetVector2();
+        proj.direction = TurretDirection;
 
     }
 
